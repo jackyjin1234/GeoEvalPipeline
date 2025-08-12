@@ -1,0 +1,67 @@
+# Visual Cue Evaluation Pipeline Configuration
+
+# Dataset Configuration
+dataset:
+  cityscapes_root: "/home/jackyjin/cityscapesScripts"
+  images_per_city: 1
+  cities: ["aachen", "bochum", "bremen"]  # Available cities in train set
+  selection_method: "systematic"  # "systematic", "first_n", "evenly_spaced"
+  
+# Visual Features Configuration  
+features:
+  target_features: ["human", "vehicle", "construction", "nature"]
+  combine_masks: false  # Create separate masks for each feature vs combined
+  mask_suffix: "mask"
+  
+# Image Processing Configuration
+processing:
+  image_size: 512  # Target size for split images
+  downscale_interpolation: "area"  # "area", "cubic", "linear"
+  upscale_interpolation: "cubic"
+  batch_size: 5
+  
+# CLIPAway Configuration
+clipaway:
+  device: "cuda"  # "cuda" or "cpu"
+  strength: 1.0
+  scale: 1
+  seed: 42
+  display_focused_embeds: false
+  model_key: "botp/stable-diffusion-v1-5-inpainting"
+  
+# Evaluation Configuration
+evaluation:
+  model: "gpt-4-vision-preview"
+  concurrent_requests: 3
+  cache_responses: true
+  use_ground_truth: true
+  max_images: null  # null = process all selected images
+  
+# Output Configuration
+output:
+  base_directory: "pipeline/output"
+  structure:
+    masks: "masks"
+    processed: "processed" 
+    clipaway: "clipaway_results"
+    evaluation: "evaluation_results"
+  cleanup_intermediate: false
+  save_debug_info: true
+  
+# Logging Configuration
+logging:
+  level: "INFO"  # "DEBUG", "INFO", "WARNING", "ERROR"
+  file: "pipeline/logs/pipeline.log"
+  console: true
+  
+# Performance Configuration
+performance:
+  max_workers: 4
+  memory_limit_gb: 16
+  gpu_memory_fraction: 0.8
+  
+# Resume Configuration
+resume:
+  enabled: true
+  checkpoint_frequency: 5  # Save state every N processed items
+  state_file: "pipeline/output/pipeline_state.json"

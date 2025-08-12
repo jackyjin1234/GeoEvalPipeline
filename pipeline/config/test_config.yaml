@@ -1,0 +1,68 @@
+# Test Configuration for Pipeline Development
+
+# Dataset Configuration (Smaller for testing)
+dataset:
+  cityscapes_root: "/home/jackyjin/cityscapesScripts"
+  images_per_city: 2
+  cities: ["aachen"]  # Single city for faster testing
+  selection_method: "first_n"
+  
+# Visual Features Configuration  
+features:
+  target_features: ["human"] # Fewer features for testing
+  combine_masks: false
+  mask_suffix: "mask"
+  
+# Image Processing Configuration
+processing:
+  image_size: 128  # Smaller for faster testing
+  downscale_interpolation: "area"
+  upscale_interpolation: "cubic"
+  batch_size: 2
+  
+# CLIPAway Configuration
+clipaway:
+  path: "/home/jackyjin/cityscapesScripts/CLIPAway"
+  device: "cpu"  # Use CPU for testing to avoid GPU conflicts
+  strength: 0.8
+  scale: 1
+  seed: 42
+  display_focused_embeds: false
+  model_key: "botp/stable-diffusion-v1-5-inpainting"
+  
+# Evaluation Configuration (Mock for testing)
+evaluation:
+  model: "mock"  # Use mock responses for testing
+  concurrent_requests: 1
+  cache_responses: true
+  use_ground_truth: true
+  max_images: 4  # Limit for testing
+  
+# Output Configuration
+output:
+  base_directory: "pipeline/tests/test_output"
+  structure:
+    masks: "masks"
+    processed: "processed"
+    clipaway: "clipaway_results" 
+    evaluation: "evaluation_results"
+  cleanup_intermediate: true  # Clean up after tests
+  save_debug_info: true
+  
+# Logging Configuration
+logging:
+  level: "DEBUG"
+  file: "pipeline/tests/test.log"
+  console: true
+  
+# Performance Configuration
+performance:
+  max_workers: 1  # Single worker for testing
+  memory_limit_gb: 4
+  gpu_memory_fraction: 0.5
+  
+# Resume Configuration
+resume:
+  enabled: false  # Disable for testing
+  checkpoint_frequency: 1
+  state_file: "pipeline/tests/test_state.json"

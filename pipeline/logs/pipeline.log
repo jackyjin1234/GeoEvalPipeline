@@ -1,0 +1,129 @@
+2025-07-31 22:52:37 - pipeline - INFO - Logging configured - Level: INFO, File: /home/jackyjin/cityscapesScripts/pipeline/logs/pipeline.log, Console: True
+2025-07-31 22:52:37 - pipeline - INFO - Pipeline CLI started with config: pipeline/config/pipeline_config.yaml
+2025-07-31 22:52:37 - pipeline.core.pipeline_config - INFO - Output directories created at: /home/jackyjin/cityscapesScripts/pipeline/output
+2025-07-31 22:52:37 - pipeline.core.pipeline_state - INFO - No existing state file found, starting fresh
+2025-07-31 22:52:37 - pipeline.core.pipeline_state - INFO - Pipeline state manager initialized (run_id: 20250731_225237)
+2025-07-31 22:52:37 - pipeline.core.visual_cue_pipeline - INFO - VisualCuePipeline initialized
+2025-07-31 22:52:37 - pipeline.core.pipeline_config - INFO - Configuration validation passed
+2025-07-31 22:52:37 - pipeline.core.pipeline_dataset - INFO - Dataset directory structure validated at: /home/jackyjin/cityscapesScripts
+2025-07-31 22:52:37 - pipeline.core.visual_cue_pipeline - INFO - Starting visual cue evaluation pipeline - Resume: False
+2025-07-31 22:52:37 - pipeline.adapters.mask_generator - INFO - Validated 13 labels for requested features
+2025-07-31 22:52:37 - pipeline.adapters.mask_generator - INFO - MaskGeneratorAdapter initialized for features: ['human', 'vehicle', 'construction', 'nature']
+2025-07-31 22:52:37 - pipeline.adapters.image_processor - INFO - ImageProcessorAdapter initialized - Target size: 512x512
+2025-07-31 22:52:37 - pipeline.adapters.clipaway_adapter - INFO - CLIPAwayAdapter initialized - Device: cuda
+2025-07-31 22:52:37 - pipeline.core.visual_cue_pipeline - ERROR - Pipeline execution failed: OpenAI API key not found. Please set the OPENAI_API_KEY environment variable.
+2025-07-31 22:52:37 - pipeline.adapters.clipaway_adapter - INFO - CLIPAway models cleaned up
+2025-07-31 22:52:37 - pipeline.core.visual_cue_pipeline - INFO - Pipeline resources cleaned up
+2025-07-31 22:52:37 - __main__ - ERROR - Pipeline execution failed: OpenAI API key not found. Please set the OPENAI_API_KEY environment variable.
+Traceback (most recent call last):
+  File "/home/jackyjin/cityscapesScripts/pipeline/run_pipeline.py", line 282, in run_pipeline_async
+    results = await pipeline.run_pipeline(resume=args.resume)
+  File "/home/jackyjin/cityscapesScripts/pipeline/core/visual_cue_pipeline.py", line 124, in run_pipeline
+    self._initialize_components()
+  File "/home/jackyjin/cityscapesScripts/pipeline/core/visual_cue_pipeline.py", line 99, in _initialize_components
+    self.evaluator_adapter = EvaluatorAdapter(
+  File "/home/jackyjin/cityscapesScripts/pipeline/adapters/evaluator_adapter.py", line 92, in __init__
+    self.api = GeoLocationAPI(
+  File "/home/jackyjin/cityscapesScripts/cityscapesscripts/evaluation/geoLocationAPI.py", line 22, in __init__
+    self.api_key = self._get_api_key()
+  File "/home/jackyjin/cityscapesScripts/cityscapesscripts/evaluation/geoLocationAPI.py", line 45, in _get_api_key
+    raise ValueError(
+ValueError: OpenAI API key not found. Please set the OPENAI_API_KEY environment variable.
+2025-07-31 22:56:26 - pipeline - INFO - Logging configured - Level: INFO, File: /home/jackyjin/cityscapesScripts/pipeline/logs/pipeline.log, Console: True
+2025-07-31 22:56:26 - pipeline - INFO - Pipeline CLI started with config: pipeline/config/pipeline_config.yaml
+2025-07-31 22:56:26 - pipeline.core.pipeline_config - INFO - Output directories created at: /home/jackyjin/cityscapesScripts/pipeline/output
+2025-07-31 22:56:26 - pipeline.core.pipeline_state - INFO - No existing state file found, starting fresh
+2025-07-31 22:56:26 - pipeline.core.pipeline_state - INFO - Pipeline state manager initialized (run_id: 20250731_225626)
+2025-07-31 22:56:26 - pipeline.core.visual_cue_pipeline - INFO - VisualCuePipeline initialized
+2025-07-31 22:56:26 - pipeline.core.pipeline_config - INFO - Configuration validation passed
+2025-07-31 22:56:26 - pipeline.core.pipeline_dataset - INFO - Dataset directory structure validated at: /home/jackyjin/cityscapesScripts
+2025-07-31 22:56:26 - pipeline.core.visual_cue_pipeline - INFO - Starting visual cue evaluation pipeline - Resume: False
+2025-07-31 22:56:26 - pipeline.adapters.mask_generator - INFO - Validated 13 labels for requested features
+2025-07-31 22:56:26 - pipeline.adapters.mask_generator - INFO - MaskGeneratorAdapter initialized for features: ['human', 'vehicle', 'construction', 'nature']
+2025-07-31 22:56:26 - pipeline.adapters.image_processor - INFO - ImageProcessorAdapter initialized - Target size: 512x512
+2025-07-31 22:56:26 - pipeline.adapters.clipaway_adapter - INFO - CLIPAwayAdapter initialized - Device: cuda
+2025-07-31 22:56:26 - pipeline.adapters.evaluator_adapter - INFO - Using OpenAI geolocation API - Model: gpt-4-vision-preview
+2025-07-31 22:56:26 - pipeline.adapters.evaluator_adapter - INFO - EvaluatorAdapter initialized
+2025-07-31 22:56:26 - pipeline.core.visual_cue_pipeline - INFO - Pipeline components initialized
+2025-07-31 22:56:26 - pipeline.core.pipeline_config - INFO - Output directories created at: /home/jackyjin/cityscapesScripts/pipeline/output
+2025-07-31 22:56:26 - pipeline.core.visual_cue_pipeline - INFO - Phase 1: Dataset Discovery
+2025-07-31 22:56:26 - pipeline.core.pipeline_state - INFO - Started phase: dataset_discovery
+2025-07-31 22:56:26 - pipeline.core.pipeline_dataset - INFO - Starting dataset discovery...
+2025-07-31 22:56:26 - pipeline.core.pipeline_dataset - INFO - Found cities: ['aachen', 'bremen', 'bochum']
+2025-07-31 22:56:26 - pipeline.core.pipeline_dataset - INFO - City aachen: 10 found, 10 valid
+2025-07-31 22:56:26 - pipeline.core.pipeline_dataset - INFO - City bremen: 10 found, 10 valid
+2025-07-31 22:56:26 - pipeline.core.pipeline_dataset - INFO - City bochum: 10 found, 10 valid
+2025-07-31 22:56:26 - pipeline.core.pipeline_dataset - INFO - Dataset discovery completed: 30 triplets found, 30 valid
+2025-07-31 22:56:26 - pipeline.core.pipeline_state - INFO - Completed phase: dataset_discovery
+2025-07-31 22:56:26 - pipeline.core.visual_cue_pipeline - INFO - Discovered 30 valid image triplets
+2025-07-31 22:56:26 - pipeline.core.visual_cue_pipeline - INFO - Cities: ['aachen', 'bremen', 'bochum']
+2025-07-31 22:56:26 - pipeline.core.visual_cue_pipeline - INFO - Items per city: {'aachen': 10, 'bremen': 10, 'bochum': 10}
+2025-07-31 22:56:26 - pipeline.core.visual_cue_pipeline - INFO - Phase 2: Image Selection
+2025-07-31 22:56:26 - pipeline.core.pipeline_state - INFO - Started phase: image_selection
+2025-07-31 22:56:26 - pipeline.core.pipeline_dataset - INFO - Selected 1 images from aachen
+2025-07-31 22:56:26 - pipeline.core.pipeline_dataset - INFO - Selected 1 images from bochum
+2025-07-31 22:56:26 - pipeline.core.pipeline_dataset - INFO - Selected 1 images from bremen
+2025-07-31 22:56:26 - pipeline.core.pipeline_dataset - INFO - Total selected: 3 images across 3 cities
+2025-07-31 22:56:26 - pipeline.core.pipeline_state - INFO - Pipeline started with 3 items
+2025-07-31 22:56:26 - pipeline.core.pipeline_state - INFO - Completed phase: image_selection
+2025-07-31 22:56:26 - pipeline.core.visual_cue_pipeline - INFO - Selected 3 images for processing
+2025-07-31 22:56:26 - pipeline.core.visual_cue_pipeline - INFO - Cities represented: ['bremen', 'aachen', 'bochum']
+2025-07-31 22:56:26 - pipeline.core.visual_cue_pipeline - INFO - Phase 3: Mask Generation (3 items)
+2025-07-31 22:56:26 - pipeline.core.pipeline_state - INFO - Started phase: mask_generation
+2025-07-31 22:56:26 - pipeline.core.visual_cue_pipeline - INFO - Processing mask batch 1 (3 items)
+2025-07-31 22:56:26 - pipeline.adapters.mask_generator - INFO - Starting batch mask generation for 3 items
+2025-07-31 22:56:27 - pipeline.adapters.mask_generator - INFO - Batch mask generation completed: 3/3 successful
+2025-07-31 22:56:27 - pipeline.core.visual_cue_pipeline - INFO - Mask generation progress: [████████████████████████████████████████] 100.0% (3/3)
+2025-07-31 22:56:28 - pipeline.core.pipeline_state - INFO - Completed phase: mask_generation
+2025-07-31 22:56:28 - pipeline.core.visual_cue_pipeline - INFO - Generated masks for 3/3 items
+2025-07-31 22:56:28 - pipeline.core.visual_cue_pipeline - INFO - Success rate: 100.0%
+2025-07-31 22:56:28 - pipeline.core.visual_cue_pipeline - INFO - Phase 4: Image Processing (3 items)
+2025-07-31 22:56:28 - pipeline.core.pipeline_state - INFO - Started phase: image_processing
+2025-07-31 22:56:28 - pipeline.core.visual_cue_pipeline - INFO - Processing image batch 1 (3 items)
+2025-07-31 22:56:28 - pipeline.adapters.image_processor - INFO - Starting batch image processing for 3 items
+2025-07-31 22:56:28 - pipeline.adapters.image_processor - INFO - Batch processing completed: 3/3 successful
+2025-07-31 22:56:28 - pipeline.core.visual_cue_pipeline - INFO - Image processing progress: [████████████████████████████████████████] 100.0% (3/3)
+2025-07-31 22:56:28 - pipeline.core.pipeline_state - INFO - Completed phase: image_processing
+2025-07-31 22:56:28 - pipeline.core.visual_cue_pipeline - INFO - Processed 3/3 items
+2025-07-31 22:56:28 - pipeline.core.visual_cue_pipeline - INFO - Success rate: 100.0%
+2025-07-31 22:56:28 - pipeline.core.visual_cue_pipeline - INFO - Phase 5: CLIPAway Processing (3 items)
+2025-07-31 22:56:28 - pipeline.core.pipeline_state - INFO - Started phase: clipaway_processing
+2025-07-31 22:56:28 - pipeline.core.visual_cue_pipeline - INFO - Processing CLIPAway batch 1 (3 items)
+2025-07-31 22:56:28 - pipeline.adapters.clipaway_adapter - INFO - Loading CLIPAway models...
+2025-07-31 22:59:11 - pipeline.adapters.clipaway_adapter - INFO - CLIPAway models loaded successfully
+2025-07-31 22:59:11 - pipeline.adapters.clipaway_adapter - INFO - Starting CLIPAway batch processing for 3 items, 4 features
+2025-07-31 23:00:00 - pipeline.adapters.clipaway_adapter - INFO - CLIPAway models cleaned up
+2025-07-31 23:00:00 - pipeline.core.visual_cue_pipeline - INFO - Pipeline resources cleaned up
+2025-08-02 10:31:35 - pipeline - INFO - Logging configured - Level: INFO, File: /home/jackyjin/cityscapesScripts/pipeline/logs/pipeline.log, Console: True
+2025-08-02 10:31:35 - pipeline - INFO - Pipeline CLI started with config: pipeline/config/pipeline_config.yaml
+2025-08-02 10:31:35 - pipeline.core.pipeline_config - INFO - Output directories created at: /home/jackyjin/cityscapesScripts/pipeline/output
+2025-08-02 10:31:35 - pipeline.core.pipeline_state - INFO - Pipeline state restored from /home/jackyjin/cityscapesScripts/pipeline/output/pipeline_state.json
+2025-08-02 10:31:35 - pipeline.core.pipeline_state - INFO - Restored state for 3 items across 7 phases
+2025-08-02 10:31:35 - pipeline.core.pipeline_state - INFO - Pipeline state manager initialized (run_id: 20250731_225626)
+2025-08-02 10:31:35 - pipeline.core.visual_cue_pipeline - INFO - VisualCuePipeline initialized
+2025-08-02 10:31:35 - pipeline.core.pipeline_config - INFO - Configuration validation passed
+2025-08-02 10:31:35 - pipeline.core.pipeline_dataset - INFO - Dataset directory structure validated at: /home/jackyjin/cityscapesScripts
+2025-08-02 10:31:35 - pipeline.core.visual_cue_pipeline - INFO - Starting visual cue evaluation pipeline - Resume: False
+2025-08-02 10:31:35 - pipeline.adapters.mask_generator - INFO - Validated 13 labels for requested features
+2025-08-02 10:31:35 - pipeline.adapters.mask_generator - INFO - MaskGeneratorAdapter initialized for features: ['human', 'vehicle', 'construction', 'nature']
+2025-08-02 10:31:35 - pipeline.adapters.image_processor - INFO - ImageProcessorAdapter initialized - Target size: 512x512
+2025-08-02 10:31:35 - pipeline.adapters.clipaway_adapter - INFO - CLIPAwayAdapter initialized - Device: cuda
+2025-08-02 10:31:35 - pipeline.adapters.evaluator_adapter - INFO - Using OpenAI geolocation API - Model: gpt-4-vision-preview
+2025-08-02 10:31:35 - pipeline.adapters.evaluator_adapter - INFO - EvaluatorAdapter initialized
+2025-08-02 10:31:35 - pipeline.core.visual_cue_pipeline - INFO - Pipeline components initialized
+2025-08-02 10:31:35 - pipeline.core.pipeline_config - INFO - Output directories created at: /home/jackyjin/cityscapesScripts/pipeline/output
+2025-08-02 10:31:35 - pipeline.core.visual_cue_pipeline - INFO - Dataset discovery already completed - skipping
+2025-08-02 10:31:35 - pipeline.core.visual_cue_pipeline - INFO - Image selection already completed - loading cached selection
+2025-08-02 10:31:35 - pipeline.core.visual_cue_pipeline - INFO - Mask generation already completed - skipping
+2025-08-02 10:31:35 - pipeline.core.visual_cue_pipeline - INFO - Image processing already completed - skipping
+2025-08-02 10:31:35 - pipeline.core.visual_cue_pipeline - INFO - CLIPAway processing already completed - skipping
+2025-08-02 10:31:35 - pipeline.core.visual_cue_pipeline - INFO - Evaluation already completed - skipping
+2025-08-02 10:31:35 - pipeline.core.visual_cue_pipeline - INFO - Phase 7: Report Generation
+2025-08-02 10:31:35 - pipeline.core.pipeline_state - INFO - Started phase: report_generation
+2025-08-02 10:31:36 - pipeline.core.pipeline_config - INFO - Configuration saved to: /home/jackyjin/cityscapesScripts/pipeline/output/pipeline_config_used.yaml
+2025-08-02 10:31:36 - pipeline.core.pipeline_state - INFO - Completed phase: report_generation
+2025-08-02 10:31:36 - pipeline.core.visual_cue_pipeline - INFO - Pipeline report saved to: /home/jackyjin/cityscapesScripts/pipeline/output/pipeline_report.json
+2025-08-02 10:31:36 - pipeline.core.pipeline_state - INFO - Pipeline completed in 128109.6 seconds
+2025-08-02 10:31:36 - pipeline.core.visual_cue_pipeline - INFO - Pipeline completed successfully in 1.0s
+2025-08-02 10:31:36 - pipeline.adapters.clipaway_adapter - INFO - CLIPAway models cleaned up
+2025-08-02 10:31:36 - pipeline.core.visual_cue_pipeline - INFO - Pipeline resources cleaned up
