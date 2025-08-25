@@ -1,0 +1,19 @@
+# Ignore project-specific directories
+cityscapesscripts/
+CLIPAway/
+gtFine/
+leftImg8bit/
+pipeline/
+redundant/
+tests/
+vehicle/
+visualization/output
+
+# Ignore Node.js dependencies
+node_modules/
+
+# General
+*.pyc
+__pycache__/
+.DS_Store
+.env

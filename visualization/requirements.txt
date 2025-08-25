@@ -1,0 +1,22 @@
+# Academic Visualization Generator Requirements
+# For generating publication-ready visualizations and statistical analysis
+
+# Core scientific computing
+numpy>=1.21.0
+pandas>=1.3.0
+
+# Visualization libraries  
+matplotlib>=3.4.0
+seaborn>=0.11.0
+
+# Image processing
+Pillow>=8.0.0
+
+# Configuration parsing
+PyYAML>=5.4.0
+
+# Optional: Enhanced statistical analysis
+scipy>=1.7.0
+
+# Optional: Interactive plotting (for future extensions)
+plotly>=5.0.0
